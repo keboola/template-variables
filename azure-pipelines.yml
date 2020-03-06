@@ -13,4 +13,3 @@ steps:
 
 - script: docker-compose run --rm tests
   displayName: 'Run Tests'
-  env:
