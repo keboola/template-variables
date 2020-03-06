@@ -1,0 +1,74 @@
+{
+  "id": 12345,
+  "configuration": {
+    "variableId": 1,
+    "defaultVariableValuesId": 123,
+    "storage": {
+      "input": [
+        {
+          "source": "in.c-my.table",
+          "destination": "table",
+          "whereColumn": "kategorie",
+          "whereOperator": "eq",
+          "whereValues": "{{ variable3 }}"
+        }
+      ],
+      "output": [
+        {
+          "source": "outtable",
+          "destination": "out.c-my.table{{ variable1 }}"
+        }
+      ]
+
+    },
+    "authorization": {
+      "workspace": {
+        "host": "keboola.snowflakecomputing.com",
+        "port": 443,
+        "warehouse": "xxx",
+        "database": "xxx",
+        "schema": "xxx",
+        "user": "xxx",
+        "password": "xxx"
+      }
+    },
+    "parameters": {
+      "steps": [
+        {
+          "name": "Step 1",
+          "excecution": "parallel",
+          "blocks": [
+            {
+              "name": "My custom queries 1",
+              "script": [
+                "SELECT 1;"
+              ]
+            },
+            {
+              "name": "My custom queries 2",
+              "script": [
+                "SELECT 2;"
+              ]
+            },
+            {
+              "name": "My custom queries 3",
+              "script": [
+                "SELECT {{ variable2 }};"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Step 2",
+          "excecution": "serial",
+          "blocks": [
+            {
+              "name": "My code Snippet",
+              "script": "{{ snippet1 }}"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

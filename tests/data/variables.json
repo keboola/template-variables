@@ -1,0 +1,40 @@
+{
+  "id": 1,
+  "name": "Parameters for transformation 12345",
+  "configuration": {
+    "variables": [
+      {
+        "name": "variable1",
+        "type": "string"
+      },
+      {
+        "name": "variable2",
+        "type": "integer"
+      },
+      {
+        "name": "variable3",
+        "type": "string"
+      }
+    ]
+  },
+  "rows": [
+    {
+      "id": 123,
+      "name": "Default values",
+      "configuration": {
+        "variable1": "value1",
+        "variable2": 100,
+        "variable3": "pohorky"
+      }
+    },
+    {
+      "id": 456,
+      "name": "Override for Sandbox",
+      "configuration": {
+        "variable1": "value2",
+        "variable2": 600,
+        "variable3": "botasky"
+      }
+    }
+  ]
+}

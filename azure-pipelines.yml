@@ -1,0 +1,16 @@
+pool:
+  name: 'Default'
+
+steps:
+- script: docker info
+  displayName: 'Info'
+
+- script: |
+    docker-compose down
+    docker-compose build --pull
+    docker-compose pull
+  displayName: 'Build Tests'
+
+- script: docker-compose run --rm tests
+  displayName: 'Run Tests'
+  env:
