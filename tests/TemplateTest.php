@@ -23,6 +23,10 @@ class TemplateTest extends TestCase
             $contexts[0]['variable3'],
             $rendered[0]['configuration']['storage']['input'][0]['whereValues']
         );
+        $this->assertEquals(
+            sprintf('out.c-my.table%s', $contexts[0]['variable1']),
+            $rendered[0]['configuration']['storage']['output'][0]['destination']
+        );
     }
 
 }
