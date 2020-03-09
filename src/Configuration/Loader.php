@@ -1,12 +1,12 @@
 <?php
+
 declare(strict_types=1);
 
-use Keboola\TemplateVariables\Configuration\Definition;
+namespace Keboola\TemplateVariables\Configuration;
 
 class Loader
 {
-    /** @var Definition */
-    protected $definition;
+    protected Definition $definition;
 
     public function __construct(Definition $definition)
     {

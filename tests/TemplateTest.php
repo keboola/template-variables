@@ -1,14 +1,19 @@
 <?php
+
 declare(strict_types=1);
 
+namespace Keboola\TemplateVariables\Tests;
+
+use Keboola\TemplateVariables\Context;
+use Keboola\TemplateVariables\Variables;
 use PHPUnit\Framework\TestCase;
 
 class TemplateTest extends TestCase
 {
     public function testGetContexts(): void
     {
-        $template = file_get_contents(__DIR__ . '/data/config.json');
-        $variablesConfiguration = json_decode(file_get_contents(__DIR__ . '/data/variables.json'), true);
+        $template = (string) file_get_contents(__DIR__ . '/data/config.json');
+        $variablesConfiguration = json_decode((string) file_get_contents(__DIR__ . '/data/variables.json'), true);
         $variables = new Variables($variablesConfiguration);
         $contexts = $variables->getContexts();
 
@@ -28,5 +33,4 @@ class TemplateTest extends TestCase
             $rendered[0]['configuration']['storage']['output'][0]['destination']
         );
     }
-
 }

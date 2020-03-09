@@ -1,7 +1,10 @@
 <?php
+
 declare(strict_types=1);
 
-class Context extends ArrayObject
+namespace Keboola\TemplateVariables;
+
+class Context extends \ArrayObject
 {
     protected int $id;
     protected string $name;

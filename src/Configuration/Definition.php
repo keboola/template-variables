@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Keboola\TemplateVariables\Configuration;
@@ -57,5 +58,4 @@ class Definition implements ConfigurationInterface
         // @formatter:on
         return $rootNode;
     }
-
 }

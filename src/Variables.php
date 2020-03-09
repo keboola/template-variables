@@ -1,15 +1,18 @@
 <?php
+
 declare(strict_types=1);
 
+namespace Keboola\TemplateVariables;
+
 use Keboola\TemplateVariables\Configuration\Definition;
+use Keboola\TemplateVariables\Configuration\Loader;
+use Mustache_Engine;
 
 class Variables
 {
-    /** @var array */
-    protected $variablesConfiguration;
+    protected array $variablesConfiguration;
 
-    /** @var Mustache_Engine */
-    protected $moustache;
+    protected Mustache_Engine $moustache;
 
     public function __construct(array $variablesConfiguration)
     {
@@ -28,7 +31,7 @@ class Variables
         return $result;
     }
 
-    public function render(string $template, Context $context)
+    public function render(string $template, Context $context): string
     {
         return $this->moustache->render($template, $context);
     }
